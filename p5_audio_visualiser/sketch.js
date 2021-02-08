@@ -4,7 +4,6 @@ let audioIn;
 
 function gotSources(deviceList) {
     if (deviceList.length > 0) {
-        //set the source to the first item in the deviceList array
         audioIn.setSource(0);
         let currentSource = deviceList[audioIn.currentSource];
         text('set source to: ' + currentSource.deviceId, 5, 20, width);
@@ -26,8 +25,7 @@ function setup() {
 
     audioIn.start();
 
-    // second param sets number of bins
-    fft = new p5.FFT(0.9, 128);
+    fft = new p5.FFT(0.9, 256);
     fft.setInput(audioIn);
 }
 
